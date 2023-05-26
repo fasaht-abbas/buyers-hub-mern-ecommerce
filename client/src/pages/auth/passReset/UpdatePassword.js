@@ -22,9 +22,9 @@ const UpdatePassword = () => {
   };
   return (
     <Wrapper>
-      <form onSubmit={UpdateHandler} className="form">
+      <form onSubmit={UpdateHandler} className="form text-norm">
         <div className="form-border">
-          <h1>ForgotPassword</h1>
+          <h1 className="text-center">ForgotPassword</h1>
 
           <div className="mb-3">
             <input
@@ -50,7 +50,7 @@ const UpdatePassword = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-norm">
             Reset Now
           </button>
         </div>
