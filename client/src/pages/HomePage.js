@@ -60,11 +60,10 @@ const HomePage = () => {
   const filterdProducts = async () => {
     setProLoading(true);
     try {
-      const { data } = await axios.post("/api/v1/product/filtered-products", {
-        checked,
-        radio,
-        currentFilterPage,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/filtered-products`,
+        { checked, radio, currentFilterPage }
+      );
       if (data.success) {
         setFilterPageCount(data?.fpc);
         setFilterProductCount(data?.filterProductCount);
@@ -110,7 +109,9 @@ const HomePage = () => {
   const getAllCategories = async () => {
     setCatLoading(true);
     try {
-      const { data } = await axios.get("/api/v1/category/all-categories");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/all-categories`
+      );
       if (data?.success) {
         setCategories(data.allCategories);
         setCatLoading(false);
