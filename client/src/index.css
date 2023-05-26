@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* this is the font using manual or syntax
+
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif;
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Admin menu and the header dropdown */
+.list-group .list-group-item.active,
+.dropdown-menu.dropdown-item:active {
+  background-color: rgba(211, 211, 211, 0.501);
+  border: none;
+  color: rgba(0, 0, 0, 0.81);
+}
+
+/* crete- product page */
+.input-text:focus {
+  outline: none;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.504);
+}
+.input-text::-webkit-input-placeholder {
+  color: black; /*Change the placeholder color*/
+  opacity: 0.3;
+}
+
+.b5 {
+  border-radius: 5px;
+}
+
+/* card image container */
+.c-p-img-container {
+  height: "240px";
+  width: "240px";
+  overflow: "hidden";
+}
+/* card image */
+.c-p-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* home page top gradient */
+
+/* pic area \ */
+
+/* utils now */
+
+.btn-norm {
+  background-color: orange;
+  border: orange;
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+.btn-norm:hover {
+  background-color: rgb(239, 155, 0);
+  color: white;
+}
+.btn-update {
+  background-color: black;
+  border: black;
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+.btn-update:hover {
+  background-color: rgb(42, 42, 42);
+  color: white;
+}
+
+.text-norm {
+  font-family: Poppins, sans-serif;
+}
+
+.text-heading {
+  font-family: Playfair Display, serif;
+  color: orange;
+}
+
+/* RADIO */
+
+.ant-radio-checked .ant-radio-inner {
+  background-color: white !important;
+  border-color: gray !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+  border-color: gray !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:focus {
+  border-color: gray !important;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: gray !important;
+}
+
+.ant-select-selection {
+  font-family: "Poppins", sans-serif;
+}
+
+/* about */
+.profile-img {
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* img-card */
+
+.img-card {
+  width: 250px;
+  height: 440px;
+  overflow: hidden;
+}
+
+.card-img-container {
+  height: 240px;
+  width: 240px;
+  overflow: hidden;
+}
+
+/* user menu link */
+.user-link {
+  text-decoration: none;
+  color: black;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  background-color: gray !important;
+  border-color: gray !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+  border-color: gray !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:focus {
+  border-color: gray !important;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: gray !important;
+}
+
+.product-link {
+  text-decoration: none;
+  color: black;
+}
+.img-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation-name: shadow;
+  animation-duration: 0.1s;
+}
+@keyframes shadow {
+  0% {
+    box-shadow: rgba(0, 0, 0, 0) 0px 5px 15px;
+  }
+  50% {
+    box-shadow: rgba(0, 0, 0, 0.17) 0px 5px 15px;
+  }
+  100% {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+
+.contact-mail {
+  color: orange;
+}
+@media only screen and (max-width: 830px) {
+  .filters {
+    display: none;
+  }
+  .filter-btn {
+    display: flex !important;
+  }
+}
+
+.checkbox.checked::after {
+  background-color: grey !important;
+}
+
+.ant-checkbox-inner {
+  background-color: white !important;
+  border-color: grey !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: grey !important;
+  border-color: grey !important;
+}
+
+.ant-checkbox-checked::after {
+  border-color: grey !important;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  background-color: grey !important;
+  border-color: grey !important;
+}
+
+@media only screen and (max-width: 560px) {
+  .search {
+    display: flex !important;
+  }
+}

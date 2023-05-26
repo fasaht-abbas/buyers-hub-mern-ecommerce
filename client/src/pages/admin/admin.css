@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Admin mernu */
+.list-group .list-group-item.active {
+  background-color: rgba(211, 211, 211, 0.501);
+  border: none;
+  color: rgba(0, 0, 0, 0.81);
+}
+
+/* crete- product page */
+.input-text:focus {
+  outline: none;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.504);
+}
+.input-text::-webkit-input-placeholder {
+  color: black; /*Change the placeholder color*/
+  opacity: 0.3;
+}
+
+.b5 {
+  border-radius: 5px;
+}
+
+/* card image container */
+.c-p-img-container {
+  height: "240px";
+  width: "240px";
+  overflow: "hidden";
+}
+/* card image */
+.c-p-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* home page top gradient */
+
+/* pic area \ */
+
+/* utils now */
+
+.btn-norm {
+  background-color: orange;
+  border: orange;
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+.btn-norm:hover {
+  background-color: rgb(239, 155, 0);
+  color: white;
+}
+.btn-update {
+  background-color: black;
+  border: black;
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+.btn-update:hover {
+  background-color: rgb(42, 42, 42);
+  color: white;
+}
+
+.text-norm {
+  font-family: Poppins, sans-serif;
+}
+
+.text-heading {
+  font-family: Playfair Display, serif;
+}
+
+/* RADIO */
+
+.ant-select-selection {
+  font-family: "Poppins", sans-serif;
+}
+
+/* about */
+.profile-img {
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.admin-link {
+  text-decoration: none;
+  color: black;
+}

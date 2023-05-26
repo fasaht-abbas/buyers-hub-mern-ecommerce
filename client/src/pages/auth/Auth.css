@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-border {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15vh;
+  padding: 20px;
+  box-shadow: 4px 4px 4px -1px gray;
+  box-shadow: -0.2px -0.2px 4px 1px gray;
+  max-width: max-content;
+}
+
+.form-border h1 {
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.form-border input {
+  border-radius: 0;
+}
+
+/* just to remove the increement arrows */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-border .btn {
+  width: 100%;
+  border-radius: 0;
+}
