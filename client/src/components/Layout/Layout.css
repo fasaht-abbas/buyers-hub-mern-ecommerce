@@ -77,7 +77,7 @@
 }
 /* working well */
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 420px) {
   .first-search {
     display: none !important;
   }
