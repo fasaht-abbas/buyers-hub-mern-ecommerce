@@ -15,15 +15,12 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/auth/contact-mail`,
-        {
-          email: seMail,
-          message,
-          subject,
-          name: senderName,
-        }
-      );
+      const { data } = await axios.post("/api/v1/auth/contact-mail", {
+        email: seMail,
+        message,
+        subject,
+        name: senderName,
+      });
       if (data.success) {
         setSubject("");
         setSenderName("");

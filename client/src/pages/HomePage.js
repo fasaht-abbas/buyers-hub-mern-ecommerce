@@ -130,12 +130,9 @@ const HomePage = () => {
   const productPagination = async () => {
     setProLoading(true);
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/product-pagination`,
-        {
-          currentPage,
-        }
-      );
+      const { data } = await axios.post("/api/v1/product/product-pagination", {
+        currentPage,
+      });
       if (data.success) {
         setPageCount(data?.pageCount);
         setProductCount(data?.productCount);
@@ -311,7 +308,7 @@ const HomePage = () => {
                       >
                         <img
                           style={{ height: "100%", width: "100%" }}
-                          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                          src={`/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top c-p-img"
                           alt={p.name}
                         />

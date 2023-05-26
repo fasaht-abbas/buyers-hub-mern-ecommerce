@@ -17,16 +17,13 @@ const Register = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/auth/register`,
-        {
-          name,
-          phone,
-          email,
-          password,
-          address,
-        }
-      );
+      const res = await axios.post("/api/v1/auth/register", {
+        name,
+        phone,
+        email,
+        password,
+        address,
+      });
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/login");
@@ -41,7 +38,7 @@ const Register = () => {
   return (
     <Wrapper title=" Register-Buyers Hub">
       <form onSubmit={submitHandler} className="form">
-        <div className="form-border">
+        <div className="form-border m-5">
           <h1 className="text-heading">Register Now</h1>
           <div className="mb-3">
             <input

@@ -18,10 +18,13 @@ const AdminSettings = () => {
   const updateAdmin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(
-        `${process.env.REACT_APP_API}/api/v1/auth/update-admin`,
-        { name, phone, address, email, password }
-      );
+      const res = await axios.put("/api/v1/auth/update-admin", {
+        name,
+        phone,
+        address,
+        email,
+        password,
+      });
       if (res.data.success.false) {
         toast.error("Error in the profile update controller");
       } else {

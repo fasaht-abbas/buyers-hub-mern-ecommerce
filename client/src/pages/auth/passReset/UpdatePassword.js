@@ -11,13 +11,10 @@ const UpdatePassword = () => {
 
   const UpdateHandler = async (e) => {
     e.preventDefault();
-    const res = await axios.put(
-      `${process.env.REACT_APP_API}/api/v1/auth/update-password`,
-      {
-        token,
-        newPassword,
-      }
-    );
+    const res = await axios.put("/api/v1/auth/update-password", {
+      token,
+      newPassword,
+    });
     if (res.data.success) {
       toast.success(res.data.message);
       navigate("/login");

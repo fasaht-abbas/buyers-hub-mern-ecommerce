@@ -11,9 +11,7 @@ const AllProducts = () => {
 
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/all-products`
-      );
+      const { data } = await axios.get("/api/v1/product/all-products");
       if (data.success) {
         setProducts(data.allProducts);
       }
@@ -53,7 +51,7 @@ const AllProducts = () => {
                   >
                     <img
                       style={{ height: "100%", width: "100%" }}
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                      src={`/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top c-p-image"
                       alt={p.name}
                     />

@@ -22,9 +22,7 @@ const CreateProduct = () => {
   // GETTING ALL THE CATEGORIES
   const getAllCategories = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/category/all-categories`
-      );
+      const { data } = await axios.get("/api/v1/category/all-categories");
       if (data?.success) {
         setCategories(data.allCategories);
       }
@@ -51,7 +49,7 @@ const CreateProduct = () => {
       productData.append("shipping", shipping);
 
       const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/create-product`,
+        "/api/v1/product/create-product",
         productData
       );
       if (res.data.success) {

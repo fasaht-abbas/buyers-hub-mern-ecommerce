@@ -22,9 +22,7 @@ const AdminOrders = () => {
   ////// getting all the orders on the admins end
   const getAllOrders = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/order/admin-orders`
-      );
+      const { data } = await axios.get("/api/v1/order/admin-orders");
       setOrders(data.orders);
     } catch (error) {
       console.log(error);
@@ -37,13 +35,10 @@ const AdminOrders = () => {
   //////////////////////////////////////////////////   Updating THE STATUS
   const updateStatus = async (id, value) => {
     try {
-      const { data } = await axios.put(
-        `${process.env.REACT_APP_API}/api/v1/order/update-status`,
-        {
-          id,
-          value,
-        }
-      );
+      const { data } = await axios.put("/api/v1/order/update-status", {
+        id,
+        value,
+      });
       getAllOrders();
       toast.success("status updated");
     } catch (error) {
@@ -111,7 +106,7 @@ const AdminOrders = () => {
                               {
                                 <img
                                   style={{ height: "210px" }}
-                                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${item.product._id}`}
+                                  src={`/api/v1/product/product-photo/${item.product._id}`}
                                   className="card-img-top"
                                   alt={item.product.name}
                                 />

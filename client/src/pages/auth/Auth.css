@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 15vh;
   padding: 20px;
   box-shadow: 4px 4px 4px -1px gray;
   box-shadow: -0.2px -0.2px 4px 1px gray;
@@ -35,4 +34,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .form-border .btn {
   width: 100%;
   border-radius: 0;
+}
+
+.fg-pass:hover {
+  color: red;
 }

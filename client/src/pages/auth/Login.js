@@ -18,13 +18,10 @@ const Login = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/auth/login`,
-        {
-          email,
-          password,
-        }
-      );
+      const res = await axios.post("/api/v1/auth/login", {
+        email,
+        password,
+      });
       if (res.data.success) {
         toast.success(res.data.message);
         setAuth({
@@ -54,7 +51,7 @@ const Login = () => {
   return (
     <Wrapper title="Login- Buyers HUB">
       <form onSubmit={loginHandler} className="form">
-        <div className="form-border">
+        <div className="form-border m-5">
           <h1 className="text-heading">Login Now</h1>
 
           <div className="mb-3">
@@ -85,7 +82,7 @@ const Login = () => {
             <button
               type="button"
               onClick={ForgotPasswordHandler}
-              className="btn text-norm"
+              className="btn text-norm fg-pass"
             >
               Forgot Password?
             </button>

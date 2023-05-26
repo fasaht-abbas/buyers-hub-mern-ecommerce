@@ -9,9 +9,7 @@ const AllUsers = () => {
   // api call for getting all the users
   const getAllUsers = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/auth/get-users`
-      );
+      const { data } = await axios.get("/api/v1/auth/get-users");
       setUsers(data?.users);
     } catch (error) {
       console.log(error);

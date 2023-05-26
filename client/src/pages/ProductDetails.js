@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const getDetails = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/single-product/${params.id}`
+        `/api/v1/product/single-product/${params.id}`
       );
       setProduct(data?.singleProduct);
     } catch (error) {
@@ -55,13 +55,10 @@ const ProductDetails = () => {
 
   const getSimilarProducts = async () => {
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/similar-products`,
-        {
-          id: product._id,
-          category: product.category,
-        }
-      );
+      const { data } = await axios.post("/api/v1/product/similar-products", {
+        id: product._id,
+        category: product.category,
+      });
       setSimilar(data.similarProducts);
     } catch (error) {
       console.log(error);
@@ -130,7 +127,7 @@ const ProductDetails = () => {
         >
           <img
             style={{ height: "100%", width: "100%" }}
-            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
+            src={`/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
             alt={product.name}
           />
@@ -213,7 +210,7 @@ const ProductDetails = () => {
                       >
                         <img
                           style={{ height: "100%", width: "100%" }}
-                          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${item._id}`}
+                          src={`/api/v1/product/product-photo/${item._id}`}
                           className="card-img-top c-p-img"
                           alt={item.name}
                         />
