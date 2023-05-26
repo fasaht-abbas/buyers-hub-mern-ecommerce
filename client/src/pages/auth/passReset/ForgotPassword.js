@@ -26,8 +26,8 @@ const ForgotPassword = () => {
   };
   return (
     <Wrapper>
-      <form onSubmit={ForgotHandler} className="form text-norm">
-        <div className="form-border">
+      <form onSubmit={ForgotHandler} className="form">
+        <div className="form-border text-norm">
           <h1 className="text-center">Forgot Password</h1>
 
           <div className="mb-3">
