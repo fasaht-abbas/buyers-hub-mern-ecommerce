@@ -47,7 +47,7 @@ const SearchResults = () => {
             <p className="lead">no search results</p>
           )}
         </div>
-        <div className="mb-2 text-center d-flex flex-wrap">
+        <div className="mb-2 text-center d-flex flex-wrap justify-content-center">
           {values.results.map((p) => (
             <div
               key={p._id}

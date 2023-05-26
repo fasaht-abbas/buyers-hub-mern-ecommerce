@@ -61,7 +61,7 @@ const SearchBar = () => {
                 type="search"
                 placeholder="Search for Products"
                 id="form1"
-                className="form-control input-text mb-2"
+                className="form-control input-text mb-3"
                 value={values.keywords}
                 onChange={(e) =>
                   setValues({ ...values, keywords: e.target.value })
