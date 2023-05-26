@@ -27,14 +27,14 @@ const ForgotPassword = () => {
   return (
     <Wrapper>
       <form onSubmit={ForgotHandler} className="form">
-        <div className="form-border text-norm">
-          <h1 className="text-center">Forgot Password</h1>
+        <div className="form-border">
+          <h1>ForgotPassword</h1>
 
           <div className="mb-3">
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter account Email"
+              placeholder="Email Address"
               type="email"
               className="form-control"
               id="exampleInputEmail1"

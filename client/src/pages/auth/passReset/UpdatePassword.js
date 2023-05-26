@@ -22,8 +22,8 @@ const UpdatePassword = () => {
   };
   return (
     <Wrapper>
-      <form onSubmit={UpdateHandler} className="form text-norm">
-        <div className="form-border">
+      <form onSubmit={UpdateHandler} className="form ">
+        <div className="form-border text-norm">
           <h1 className="text-center">ForgotPassword</h1>
 
           <div className="mb-3">
