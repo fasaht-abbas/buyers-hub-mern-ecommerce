@@ -4,6 +4,7 @@ import "./Auth.css";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -11,10 +12,12 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // on submit handler function
   const submitHandler = async (e) => {
+    setLoading(true);
     e.preventDefault();
     try {
       const res = await axios.post("/api/v1/auth/register", {
@@ -25,12 +28,15 @@ const Register = () => {
         address,
       });
       if (res.data.success) {
+        setLoading(false);
         toast.success(res.data.message);
         navigate("/login");
       } else {
+        setLoading(false);
         toast.error(res.data.message);
       }
     } catch (error) {
+      setLoading(false);
       toast.error("Something went wrong");
     }
   };
@@ -99,7 +105,7 @@ const Register = () => {
           </div>
 
           <button type="submit" className="btn btn-norm text-norm">
-            Register
+            {loading ? <Loading /> : "Register"}
           </button>
         </div>
       </form>

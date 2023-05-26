@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,29 +14,33 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   // on submit handler function
   const loginHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post("/api/v1/auth/login", {
         email,
         password,
       });
       if (res.data.success) {
-        toast.success(res.data.message);
+        toast.success("logged in Successfully");
         setAuth({
           ...auth,
           user: res.data.user,
           token: res.data.token,
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
+        setLoading(false);
         {
           res.data.user.role === 1
             ? navigate("/dashboard/admin")
             : navigate(location.state || "/");
         }
       } else {
+        setLoading(false);
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -88,7 +93,7 @@ const Login = () => {
             </button>
           </div>
           <button type="submit" className="btn btn-norm text-norm b5">
-            Login
+            {loading ? <Loading /> : "Login"}
           </button>
         </div>
       </form>

@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import toast from "react-hot-toast";
+import Loading from "../components/Loading";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Cart = () => {
   const [instance, setInstance] = useState();
   const [clientToken, setClientToken] = useState("");
   const [orderAddress, setOrderAddress] = useState();
+  const [loading, setLoading] = useState(false);
 
   // amount of the same products
 
@@ -79,6 +81,7 @@ const Cart = () => {
   ////// handlePayment
 
   const handlePayment = async () => {
+    setLoading(true);
     try {
       const { nonce } = await instance.requestPaymentMethod();
       const { data } = await axios.post("/api/v1/order/braintree/payment", {
@@ -91,9 +94,11 @@ const Cart = () => {
         setCart([]);
         setOrderAddress("");
         navigate("/dashboard/user/orders");
+        setLoading(false);
         toast.success("The order has been made");
       }
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -210,7 +215,7 @@ const Cart = () => {
                     onInstance={(instance) => setInstance(instance)}
                   />
                   <button className="btn-primary mt-2" onClick={handlePayment}>
-                    Order Now
+                    {loading ? <Loading /> : "Order Now"}
                   </button>
                 </>
               )}
