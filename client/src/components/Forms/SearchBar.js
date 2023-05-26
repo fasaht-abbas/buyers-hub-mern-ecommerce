@@ -11,7 +11,7 @@ const SearchBar = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/search/${values.keywords}`
+        `/api/v1/product/search/${values.keywords}`
       );
       if (data.success) {
         setValues({ ...values, results: data.searchResult });
