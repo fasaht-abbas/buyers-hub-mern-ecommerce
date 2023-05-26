@@ -116,7 +116,7 @@ const ProductDetails = () => {
   };
   useEffect(() => {
     scroll();
-  }, [getDetails]);
+  }, [product]);
 
   return (
     <Wrapper>

@@ -50,9 +50,11 @@ const UpdatePassword = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-norm">
-            Reset Now
-          </button>
+          <div className="mb-3">
+            <button type="submit" className="btn btn-norm">
+              Reset Now
+            </button>
+          </div>
         </div>
       </form>
     </Wrapper>

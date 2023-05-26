@@ -42,9 +42,11 @@ const ForgotPassword = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-norm">
-            Next
-          </button>
+          <div className="mb-3">
+            <button type="submit" className="btn btn-norm">
+              Next
+            </button>
+          </div>
         </div>
       </form>
     </Wrapper>
