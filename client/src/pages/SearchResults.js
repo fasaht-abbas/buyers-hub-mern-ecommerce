@@ -4,6 +4,7 @@ import { useSearch } from "../context/search";
 import { useCart } from "../context/cartContext";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import SearchBar from "../components/Forms/SearchBar";
 
 const SearchResults = () => {
   const navigate = useNavigate();
@@ -39,6 +40,11 @@ const SearchResults = () => {
   return (
     <Wrapper title="Search results">
       <div className="container text-norm">
+        <div className="search col-md-12  d-none">
+          <div className="mx-auto m-3 mb-0">
+            <SearchBar />
+          </div>
+        </div>
         <div className="text-center">
           <h1 className="display-5">Search Results</h1>
           {values.results.length > 0 ? (
