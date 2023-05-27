@@ -67,7 +67,7 @@ const SearchBar = () => {
                   setValues({ ...values, keywords: e.target.value })
                 }
               />
-              <div className="col-md-6">
+              <div className="col-md-6 mx-auto">
                 <button
                   type="submit"
                   className="btn btn-sm btn-update"

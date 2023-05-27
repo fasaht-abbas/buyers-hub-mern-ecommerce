@@ -40,7 +40,7 @@ const SearchResults = () => {
   return (
     <Wrapper title="Search results">
       <div className="container text-norm">
-        <div className="search col-md-12  d-none">
+        <div className="search col-md-12  d-none justify-content-center">
           <div className="mx-auto m-3 mb-0">
             <SearchBar />
           </div>
