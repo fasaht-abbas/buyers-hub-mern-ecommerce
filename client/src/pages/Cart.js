@@ -177,7 +177,7 @@ const Cart = () => {
                       deleteCartItem(p);
                     }}
                   >
-                    <i className="bi bi-trash"></i>
+                    <i className="bi bi-trash">delete</i>
                   </button>
                 </div>
               </div>
