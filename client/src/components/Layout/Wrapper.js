@@ -5,7 +5,7 @@ import "./Layout.css";
 import { Helmet } from "react-helmet";
 import toast, { Toaster } from "react-hot-toast";
 
-const Wrapper = ({ children, title, description, keywords, auther }) => {
+const Wrapper = ({ children, title, description, keywords, author }) => {
   return (
     <div className="wrapper">
       <Helmet>
@@ -13,7 +13,7 @@ const Wrapper = ({ children, title, description, keywords, auther }) => {
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <meta name="author" content={auther}></meta>
+        <meta name="author" content={author}></meta>
       </Helmet>
       <Header />
       <main style={{ minHeight: "100vh" }}>
