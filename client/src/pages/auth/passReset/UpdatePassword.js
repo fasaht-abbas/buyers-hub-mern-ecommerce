@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Wrapper from "../../../components/Layout/Wrapper";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { apiClient } from "../../../utils/AxiosInterceptor";
 
 const UpdatePassword = () => {
   const [token, setToken] = useState();
@@ -11,7 +11,7 @@ const UpdatePassword = () => {
 
   const UpdateHandler = async (e) => {
     e.preventDefault();
-    const res = await axios.put("/api/v1/auth/update-password", {
+    const res = await apiClient.put("/api/v1/auth/update-password", {
       token,
       newPassword,
     });

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../components/Layout/Wrapper";
 import { useCart } from "../context/cartContext";
 import { useAuth } from "../context/auth";
-import axios from "axios";
+import { apiClient } from "../utils/AxiosInterceptor";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import toast from "react-hot-toast";
@@ -68,7 +68,7 @@ const Cart = () => {
   /// GETTING THE CLIENT TOKEN FOR THE PAYMENT
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/order/braintree/token");
+      const { data } = await apiClient.get("/api/v1/order/braintree/token");
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -84,7 +84,7 @@ const Cart = () => {
     setLoading(true);
     try {
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/order/braintree/payment", {
+      const { data } = await apiClient.post("/api/v1/order/braintree/payment", {
         cart,
         nonce,
         orderAddress,

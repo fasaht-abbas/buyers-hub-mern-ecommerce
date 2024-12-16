@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../components/Layout/Wrapper";
 import { toast } from "react-hot-toast";
-import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useCart } from "../context/cartContext";
+import { apiClient } from "../utils/AxiosInterceptor";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const ProductDetails = () => {
 
   const getDetails = async () => {
     try {
-      const { data } = await axios.get(
+      const { data } = await apiClient.get(
         `/api/v1/product/single-product/${params.id}`
       );
       setProduct(data?.singleProduct);
@@ -55,10 +55,13 @@ const ProductDetails = () => {
 
   const getSimilarProducts = async () => {
     try {
-      const { data } = await axios.post("/api/v1/product/similar-products", {
-        id: product._id,
-        category: product.category,
-      });
+      const { data } = await apiClient.post(
+        "/api/v1/product/similar-products",
+        {
+          id: product._id,
+          category: product.category,
+        }
+      );
       setSimilar(data.similarProducts);
     } catch (error) {
       console.log(error);

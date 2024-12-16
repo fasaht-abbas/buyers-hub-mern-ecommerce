@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import "./Auth.css";
 import { toast } from "react-hot-toast";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
 
@@ -20,7 +20,7 @@ const Register = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/register", {
+      const res = await apiClient.post("/api/v1/auth/register", {
         name,
         phone,
         email,

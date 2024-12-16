@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
-import axios from "axios";
+import { apiClient } from "../utils/AxiosInterceptor";
 import Wrapper from "../components/Layout/Wrapper";
 import { Checkbox, Radio } from "antd";
 import { ranges } from "../components/Forms/Utils";
@@ -60,11 +60,14 @@ const HomePage = () => {
   const filterdProducts = async () => {
     setProLoading(true);
     try {
-      const { data } = await axios.post("/api/v1/product/filtered-products", {
-        checked,
-        radio,
-        currentFilterPage,
-      });
+      const { data } = await apiClient.post(
+        "/api/v1/product/filtered-products",
+        {
+          checked,
+          radio,
+          currentFilterPage,
+        }
+      );
       if (data.success) {
         setFilterPageCount(data?.fpc);
         setFilterProductCount(data?.filterProductCount);
@@ -110,7 +113,7 @@ const HomePage = () => {
   const getAllCategories = async () => {
     setCatLoading(true);
     try {
-      const { data } = await axios.get("/api/v1/category/all-categories");
+      const { data } = await apiClient.get("/api/v1/category/all-categories");
       if (data?.success) {
         setCategories(data.allCategories);
         setCatLoading(false);
@@ -130,9 +133,12 @@ const HomePage = () => {
   const productPagination = async () => {
     setProLoading(true);
     try {
-      const { data } = await axios.post("/api/v1/product/product-pagination", {
-        currentPage,
-      });
+      const { data } = await apiClient.post(
+        "/api/v1/product/product-pagination",
+        {
+          currentPage,
+        }
+      );
       if (data.success) {
         setPageCount(data?.pageCount);
         setProductCount(data?.productCount);

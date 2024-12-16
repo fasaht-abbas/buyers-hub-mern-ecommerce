@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Wrapper from "../components/Layout/Wrapper";
-import axios from "axios";
 import toast from "react-hot-toast";
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
+import { apiClient } from "../utils/AxiosInterceptor";
 const Contact = () => {
   const [subject, setSubject] = useState();
   const [senderName, setSenderName] = useState();
@@ -15,7 +15,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post("/api/v1/auth/contact-mail", {
+      const { data } = await apiClient.post("/api/v1/auth/contact-mail", {
         email: seMail,
         message,
         subject,
