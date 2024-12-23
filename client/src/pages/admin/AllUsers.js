@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import AdminMenu from "./AdminMenu";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import { useAuth } from "../../context/auth";
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
@@ -9,7 +9,7 @@ const AllUsers = () => {
   // api call for getting all the users
   const getAllUsers = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/get-users");
+      const { data } = await apiClient.get("/api/v1/auth/get-users");
       setUsers(data?.users);
     } catch (error) {
       console.log(error);

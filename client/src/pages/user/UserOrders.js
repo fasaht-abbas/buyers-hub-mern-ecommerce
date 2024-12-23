@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import UserMenu from "./UserMenu";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import moment from "moment";
 import { useAuth } from "../../context/auth";
 
@@ -11,7 +11,7 @@ const UserOrders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get(
+      const { data } = await apiClient.get(
         `${process.env.REACT_APP_API}/api/v1/order/user-orders`
       );
       setOrders(data?.orders);

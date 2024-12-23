@@ -1,7 +1,7 @@
 import AdminMenu from "./AdminMenu";
 import React, { useState, useEffect } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import moment from "moment";
 import { useAuth } from "../../context/auth";
 import { Select } from "antd";
@@ -22,7 +22,7 @@ const AdminOrders = () => {
   ////// getting all the orders on the admins end
   const getAllOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/order/admin-orders");
+      const { data } = await apiClient.get("/api/v1/order/admin-orders");
       setOrders(data.orders);
     } catch (error) {
       console.log(error);
@@ -35,7 +35,7 @@ const AdminOrders = () => {
   //////////////////////////////////////////////////   Updating THE STATUS
   const updateStatus = async (id, value) => {
     try {
-      const { data } = await axios.put("/api/v1/order/update-status", {
+      const { data } = await apiClient.put("/api/v1/order/update-status", {
         id,
         value,
       });
@@ -106,7 +106,7 @@ const AdminOrders = () => {
                               {
                                 <img
                                   style={{ height: "210px" }}
-                                  src={`/api/v1/product/product-photo/${item.product._id}`}
+                                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${item.product._id}`}
                                   className="card-img-top"
                                   alt={item.product.name}
                                 />

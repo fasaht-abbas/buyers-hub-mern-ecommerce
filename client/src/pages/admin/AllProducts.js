@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import AdminMenu from "./AdminMenu";
 import { toast } from "react-hot-toast";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import { useNavigate } from "react-router-dom";
 
 const AllProducts = () => {
@@ -11,7 +11,7 @@ const AllProducts = () => {
 
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/all-products");
+      const { data } = await apiClient.get("/api/v1/product/all-products");
       if (data.success) {
         setProducts(data.allProducts);
       }
@@ -51,7 +51,7 @@ const AllProducts = () => {
                   >
                     <img
                       style={{ height: "100%", width: "100%" }}
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top c-p-image"
                       alt={p.name}
                     />

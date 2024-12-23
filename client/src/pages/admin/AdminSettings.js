@@ -1,6 +1,6 @@
 import AdminMenu from "./AdminMenu";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import Wrapper from "../../components/Layout/Wrapper";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
@@ -18,7 +18,7 @@ const AdminSettings = () => {
   const updateAdmin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put("/api/v1/auth/update-admin", {
+      const res = await apiClient.put("/api/v1/auth/update-admin", {
         name,
         phone,
         address,

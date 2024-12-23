@@ -4,7 +4,7 @@ import { useAuth } from "../context/auth";
 import { toast } from "react-hot-toast";
 
 const Spinner = () => {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(20);
   const navigate = useNavigate();
   const location = useLocation();
   const [auth] = useAuth();

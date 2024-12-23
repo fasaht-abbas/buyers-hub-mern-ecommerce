@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import { useAuth } from "../../context/auth";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import UserMenu from "./UserMenu";
@@ -18,7 +18,7 @@ const ProfileSettings = () => {
   const updateProfile = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(
+      const { data } = await apiClient.put(
         `${process.env.REACT_APP_API}/api/v1/auth/update-profile`,
         { name, phone, address, email, password }
       );

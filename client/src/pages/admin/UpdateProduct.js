@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import AdminMenu from "./AdminMenu";
 import { Select } from "antd";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Modal } from "antd";
@@ -25,7 +25,7 @@ const UpdateProduct = () => {
 
   const getSingleProduct = async () => {
     try {
-      const { data } = await axios.get(
+      const { data } = await apiClient.get(
         `/api/v1/product/single-product/${params.id}`
       );
       if (data.success) {
@@ -51,7 +51,7 @@ const UpdateProduct = () => {
   //GET ALL CATEGORIES
   const getAllCategories = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/all-categories");
+      const { data } = await apiClient.get("/api/v1/category/all-categories");
       if (data?.success) {
         setCategories(data.allCategories);
       }
@@ -78,7 +78,7 @@ const UpdateProduct = () => {
       productData.append("quantity", quantity);
       productData.append("shipping", shipping);
 
-      const res = await axios.put(
+      const res = await apiClient.put(
         `/api/v1/product/update-product/${params.id}`,
         productData
       );
@@ -98,7 +98,7 @@ const UpdateProduct = () => {
 
   const handleDelete = async (req, res) => {
     try {
-      const { data } = await axios.delete(
+      const { data } = await apiClient.delete(
         `/api/v1/product/delete-product/${params.id}`
       );
       if (data.success) {

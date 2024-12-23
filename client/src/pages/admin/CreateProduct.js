@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../../components/Layout/Wrapper";
 import AdminMenu from "./AdminMenu";
 import { Select } from "antd";
-import axios from "axios";
+import { apiClient } from "../../utils/AxiosInterceptor";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const CreateProduct = () => {
   // GETTING ALL THE CATEGORIES
   const getAllCategories = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/all-categories");
+      const { data } = await apiClient.get("/api/v1/category/all-categories");
       if (data?.success) {
         setCategories(data.allCategories);
       }
@@ -48,7 +48,7 @@ const CreateProduct = () => {
       productData.append("quantity", quantity);
       productData.append("shipping", shipping);
 
-      const res = await axios.post(
+      const res = await apiClient.post(
         "/api/v1/product/create-product",
         productData
       );
